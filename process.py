@@ -14,6 +14,7 @@ def post_processing(original_image, yolo_output):
         bounding_box = o[2]
 
         # This confidence threshold can be changed depending on our data.
+        # TODO: add IoU and NMS
         if confidence > 0.8:
             b_x = bounding_box[0]
             b_y = bounding_box[1]
@@ -34,6 +35,7 @@ def post_processing(original_image, yolo_output):
                 print(f'{confidence * 100:.2f}% sure that this is a(n) {object_class}.')
                 print(f'(x, y): ({b_x:.2f}, {b_y:.2f}); (w, h): ({b_w:.2f}, {b_h:.2f})')
 
+    # TODO: I need this function to return the final image, with boxes.
     plt.show()
 
 

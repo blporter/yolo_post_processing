@@ -153,7 +153,8 @@ def run_yolo(image_path):
     meta = load_meta(b'darknet/cfg/coco.data')
 
     img = str.encode(image_path)
-    r = detect(net, meta, img, 0.1, 0.1, 0)
+    # r = detect(net, meta, img)
+    r = detect(net, meta, img, 0.01, 0.01, 0)
 
     import pickle
     with open('yolo_output.pickle', 'wb') as f:
